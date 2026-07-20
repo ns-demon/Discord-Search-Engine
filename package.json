@@ -1,0 +1,37 @@
+{
+  "name": "discord-vault-browser",
+  "version": "1.0.0",
+  "description": "Discord Vault Browser",
+  "main": "main.js",
+
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+
+  "devDependencies": {
+    "electron": "^latest",
+    "electron-builder": "^latest"
+  },
+
+  "build": {
+    "appId": "com.discordvault.browser",
+
+    "productName": "Discord Vault Browser",
+
+    "asar": true,
+
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+
+    "publish": null
+  }
+}

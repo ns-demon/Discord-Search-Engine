@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Discord Vault Browser</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+<meta http-equiv="Content-Security-Policy"
+content="
+default-src 'self';
+script-src 'self';
+style-src 'self';
+">
+
+</head>
+
+
+<body>
+
+
+<div class="browser">
+
+
+<div class="tabs-bar">
+
+
+<div id="tabs"></div>
+
+
+<button id="new-tab">
++
+</button>
+
+
+</div>
+
+
+
+<div class="toolbar">
+
+
+<button id="back">
+←
+</button>
+
+
+<button id="forward">
+→
+</button>
+
+
+<button id="reload">
+↻
+</button>
+
+
+
+<input
+id="address"
+placeholder="Search or enter URL"
+/>
+
+
+
+<button id="go">
+Go
+</button>
+
+
+
+<button id="settings">
+⚙
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div id="settings-panel"
+style="display:none;">
+
+
+<h3>
+Settings
+</h3>
+
+
+
+<label>
+
+<input
+type="checkbox"
+id="autoLock"
+/>
+
+Auto Lock
+
+</label>
+
+
+
+<br><br>
+
+
+
+<label>
+
+Lock minutes:
+
+<input
+type="number"
+id="lockMinutes"
+value="30"
+/>
+
+</label>
+
+
+
+<br><br>
+
+
+
+<label>
+
+<input
+type="checkbox"
+id="clearData"
+/>
+
+Clear Discord data on lock
+
+</label>
+
+
+
+<br><br>
+
+
+
+<button id="save-settings">
+Save Settings
+</button>
+
+
+
+<br><br>
+
+
+
+<button id="clear-discord">
+Clear Discord Session
+</button>
+
+
+
+<br><br>
+
+
+
+<button id="lock-now">
+Lock Now
+</button>
+
+
+
+<br><br>
+
+
+
+<button id="close-settings">
+Close
+</button>
+
+
+</div>
+
+
+
+<script src="browser.js"></script>
+
+
+</body>
+
+</html>

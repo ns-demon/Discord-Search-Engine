@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Create PIN</title>
+
+<link rel="stylesheet" href="style.css">
+
+
+<meta http-equiv="Content-Security-Policy"
+content="
+default-src 'self';
+script-src 'self';
+style-src 'self';
+">
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+<h2>
+Create Vault PIN
+</h2>
+
+
+<p>
+Create a 4-6 digit PIN.
+</p>
+
+
+
+<input
+id="pin"
+type="password"
+maxlength="6"
+inputmode="numeric"
+placeholder="Enter PIN"
+/>
+
+
+
+<br><br>
+
+
+
+<input
+id="confirm"
+type="password"
+maxlength="6"
+inputmode="numeric"
+placeholder="Confirm PIN"
+/>
+
+
+
+<br><br>
+
+
+
+<button id="create">
+Create PIN
+</button>
+
+
+
+<p id="status"></p>
+
+
+</div>
+
+
+
+	<script src="setup.js"></script>
+
+
+</body>
+
+</html>

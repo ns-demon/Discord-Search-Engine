@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Settings</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="settings-panel">
+
+
+<h1>
+⚙ Browser Settings
+</h1>
+
+
+
+<section>
+
+<h3>
+Privacy
+</h3>
+
+
+<label>
+
+<input
+type="checkbox"
+id="autoClear"
+>
+
+Auto clear browser data
+
+</label>
+
+
+<br>
+
+
+<label>
+
+<input
+type="checkbox"
+id="clearCookies"
+>
+
+Clear cookies on exit
+
+</label>
+
+
+<br>
+
+
+<label>
+
+<input
+type="checkbox"
+id="clearCache"
+>
+
+Clear cache on exit
+
+</label>
+
+
+</section>
+
+
+
+
+
+<section>
+
+<h3>
+Security
+</h3>
+
+
+<label>
+
+<input
+type="checkbox"
+id="autoLock"
+>
+
+Enable auto lock
+
+</label>
+
+
+<br>
+
+
+<input
+id="lockMinutes"
+type="number"
+min="1"
+max="120"
+placeholder="Minutes"
+/>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h3>
+Actions
+</h3>
+
+
+
+<button id="clearWeb">
+
+Clear Website Data
+
+</button>
+
+
+
+<button id="clearDiscord">
+
+Clear Discord Data
+
+</button>
+
+
+
+<button id="lock">
+
+Lock Browser
+
+</button>
+
+
+</section>
+
+
+
+
+<p id="status"></p>
+
+
+</div>
+
+
+
+
+<script>
+
+
+const status =
+document.getElementById(
+"status"
+);
+
+
+
+async function loadSettings(){
+
+
+const settings =
+await window.vault.getSettings();
+
+
+
+document.getElementById(
+"autoClear"
+).checked =
+settings.autoClear;
+
+
+
+document.getElementById(
+"clearCookies"
+).checked =
+settings.clearCookies;
+
+
+
+document.getElementById(
+"clearCache"
+).checked =
+settings.clearCache;
+
+
+
+document.getElementById(
+"autoLock"
+).checked =
+settings.autoLock;
+
+
+
+document.getElementById(
+"lockMinutes"
+).value =
+settings.lockMinutes || 10;
+
+
+}
+
+
+
+
+
+async function save(){
+
+
+await window.vault.saveSettings({
+
+autoClear:
+document.getElementById(
+"autoClear"
+).checked,
+
+
+clearCookies:
+document.getElementById(
+"clearCookies"
+).checked,
+
+
+clearCache:
+document.getElementById(
+"clearCache"
+).checked,
+
+
+autoLock:
+document.getElementById(
+"autoLock"
+).checked,
+
+
+lockMinutes:
+Number(
+document.getElementById(
+"lockMinutes"
+).value
+)
+
+
+});
+
+
+status.textContent =
+"Saved";
+
+
+}
+
+
+
+
+
+document
+.querySelectorAll(
+"input"
+)
+.forEach(input=>{
+
+
+input.onchange =
+save;
+
+
+});
+
+
+
+
+
+document
+.getElementById(
+"clearDiscord"
+)
+.onclick =
+async()=>{
+
+
+await window.vault.clearDiscord();
+
+
+status.textContent =
+"Discord data cleared";
+
+
+};
+
+
+
+
+
+document
+.getElementById(
+"clearWeb"
+)
+.onclick =
+async()=>{
+
+
+await window.vault.clearWebData();
+
+
+status.textContent =
+"Website data cleared";
+
+
+};
+
+
+
+
+
+document
+.getElementById(
+"lock"
+)
+.onclick =
+()=>{
+
+
+window.vault.lock();
+
+
+};
+
+
+
+
+
+loadSettings();
+
+
+</script>
+
+
+</body>
+
+</html>
