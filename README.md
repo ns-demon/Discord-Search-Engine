@@ -1,0 +1,1 @@
+**um you can download the zip and extract it and place it on whereever you want in a folder nd run the setup file or js download the source thats open source and install npm nd git and then do npm install then npm start**
